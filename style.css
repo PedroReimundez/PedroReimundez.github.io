@@ -79,6 +79,40 @@ body{
   }
 }
 
+
+.proyect{
+  background-color: aliceblue;
+  align-items: center;
+  margin: 1% 30%;
+  
+  font-family:'Times New Roman', Times, serif;
+  text-align: center;
+  
+  border: 1px solid #000;
+  border-width: 5px;
+  border-color: rgb(9, 0, 34);
+  border-radius: 12px;
+}
+
+.proyect h1{
+  margin: 20px auto 0% auto;
+  font-size: 24px;
+}
+
+.proyect p{
+  margin: 2% auto 5% auto;
+  font-size: 16px;
+}
+
+.proyect_icon{
+  align-items: center;
+  margin: 2%;
+  width: 90%;
+  border-radius: 10px;
+  
+}
+
+
 /*Zona inferior*/
 
 .footer {
@@ -104,3 +138,4 @@ body{
   text-decoration: none;
   font-size: 9px;
 }
+
