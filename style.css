@@ -81,6 +81,7 @@ body{
 
 
 .proyect{
+  transition: box-shadow 0.3s ease;
   background-color: aliceblue;
   align-items: center;
   margin: 1% 30%;
@@ -92,6 +93,11 @@ body{
   border-width: 5px;
   border-color: rgb(9, 0, 34);
   border-radius: 12px;
+}
+
+.proyect:hover{
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 0.1rem 0.4rem rgba(255, 255, 255, 0.39);
 }
 
 .proyect h1{
