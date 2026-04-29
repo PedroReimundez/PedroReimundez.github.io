@@ -80,11 +80,20 @@ body{
 }
 
 
+.proyect_link,
+.proyect_link:visited,
+.proyect_link h1 p :active{
+  color: #000;
+  text-decoration: none;
+}
+
+
 .proyect{
   transition: box-shadow 0.3s ease;
   background-color: aliceblue;
   align-items: center;
   margin: 1% 30%;
+
   
   font-family:'Times New Roman', Times, serif;
   text-align: center;
@@ -117,6 +126,12 @@ body{
   border-radius: 10px;
   
 }
+
+.app_icon{
+  aspect-ratio: 512px 512px;
+  max-height: 5rem;
+}
+
 
 
 /*Zona inferior*/
