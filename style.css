@@ -393,25 +393,51 @@ body{
 @media (max-width: 768px) {
   .project_description {
     width: 100%;
-    gap: 18px;
+    max-width: 100%;
+    gap: 14px;
+    margin: 10px auto 0 auto;
+  }
+
+  .project_top {
+    gap: 12px;
+  }
+
+  .video {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .project_content {
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
+  }
+
+  .project_left,
+  .project_right {
+    max-width: 100%;
+    min-width: 0;
+    padding: 12px 16px;
   }
 
   .project_right {
-    padding: 14px 18px;
+    padding: 12px 16px;
   }
 
   .project_description h1 {
-    font-size: 20px;
+    font-size: 18px;
+    margin-top: 12px;
+  }
+
+  .project_description h2,
+  .project_description h3 {
+    font-size: 14px;
+    margin: 14px 0 10px 0;
   }
 
   .project_description p,
   .project_right p,
   .project_right ul li {
-    font-size: 13px;
+    font-size: 12px;
   }
 }
