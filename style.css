@@ -441,6 +441,7 @@ body{
   .project_right ul li {
     font-size: 12px;
   }
+}
 
 /* Mantener el contenido principal ligeramente insetado en móvil (excluye header y footer) */
 @media (max-width: 768px) {
