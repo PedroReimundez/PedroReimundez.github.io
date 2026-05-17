@@ -157,7 +157,8 @@ body{
 
 .project_right ul li {
   margin-bottom: 8px;
-  font-size: 13px;
+  font-size: 14px;
+  font-family: 'Share Tech Mono', sans-serif, cursive;
 }
 
 
@@ -166,7 +167,7 @@ body{
   color: #ffffff;
   text-align: center;
   font-family: 'Press Start 2P', sans-serif, cursive;
-  margin: 20px 0px 0px 0px;
+  margin: 20px 0px 20px 0px;
 }
 
 .project_description h2 {
@@ -174,7 +175,7 @@ body{
   color: #ffffff;
   text-align: center;
   font-family: 'Press Start 2P', sans-serif, cursive;
-  margin: 20px 0px 0px 0px;
+  margin: 10px 0px 20px 0px;
 }
 
 .project_description h3 {
@@ -182,7 +183,7 @@ body{
   color: #ffffff;
   text-align: center;
   font-family: 'Press Start 2P', sans-serif, cursive;
-  margin: 20px 0px 20px 0px;
+  margin: 30px 0px 20px 0px;
 }
 
 .project_description p {
@@ -461,5 +462,17 @@ body{
     max-width: 100%;
     min-width: 0;
     aspect-ratio: 3 / 2;
+  }
+}
+
+/* Mantener el contenido principal ligeramente insetado en móvil (excluye header y footer) */
+@media (max-width: 768px) {
+  main {
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
