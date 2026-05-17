@@ -362,9 +362,6 @@ body{
 
 
 @media (max-width: 1024px) {
-  body {
-    margin: auto 80% auto 80%;
-  }
   .project_description {
     width: 95%;
     gap: 24px;
@@ -442,5 +439,20 @@ body{
   .project_right p,
   .project_right ul li {
     font-size: 12px;
+  }
+
+  .projects .project_container {
+    justify-content: center;
+  }
+
+  .projects .project_container .project_box {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .projects .project_container .project_box a {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 3 / 2;
   }
 }
