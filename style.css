@@ -235,6 +235,9 @@ body{
   transform-origin: center;
   border-radius: 20px;
   overflow: hidden;
+  flex: 1 1 420px;
+  max-width: 420px;
+  min-width: 0;
 }
 .projects .project_container .project_box:hover {
   transform: scale(1.03);
@@ -250,10 +253,11 @@ body{
 }
 
 .projects .project_container .project_box a {
-  width: 420px;
-  height: 280px;
+  width: 100%;
+  height: auto;
   border-radius: 20px;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
 }
@@ -454,12 +458,17 @@ body{
     width: 100%;
     max-width: 420px;
     min-width: 0;
+    overflow: hidden;
   }
 
   .projects .project_container .project_box a {
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    max-height: 260px;
+    background-size: cover;
+    background-position: center;
   }
 }
