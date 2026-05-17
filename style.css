@@ -442,29 +442,6 @@ body{
     font-size: 12px;
   }
 
-  .projects .project_container {
-    justify-content: center;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    padding: 0 10px;
-  }
-
-  .projects .project_container .project_box {
-    flex: 1 1 100%;
-    width: 100%;
-    max-width: 420px;
-    min-width: 0;
-  }
-
-  .projects .project_container .project_box a {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    aspect-ratio: 3 / 2;
-  }
-}
-
 /* Mantener el contenido principal ligeramente insetado en móvil (excluye header y footer) */
 @media (max-width: 768px) {
   main {
