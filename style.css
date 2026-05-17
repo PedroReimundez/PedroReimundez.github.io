@@ -362,6 +362,9 @@ body{
 
 
 @media (max-width: 1024px) {
+  body {
+    margin: auto 80% auto 80%;
+  }
   .project_description {
     width: 95%;
     gap: 24px;
