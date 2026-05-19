@@ -70,7 +70,7 @@ body{
   background-color: rgb(11, 0, 22);
   color: white;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 30px;
   font-size: 12px;
   
   display: flex;
@@ -259,7 +259,115 @@ body{
   transform: scale(1.08);
 }
 
+.project_images {
+  display: flex;
+  justify-content: center;
+  padding: 30px 20px 0px;
+}
 
+.carousel {
+  position: relative;
+  width: min(100%, 900px);
+  max-width: 100%;
+  height: 520px;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carousel-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border: none;
+  background: rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.carousel-prev {
+  left: 14px;
+}
+
+.carousel-next {
+  right: 14px;
+}
+
+.carousel-arrow:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.carousel-arrow:disabled {
+  background: rgba(255, 255, 255, 0.15);
+  cursor: default;
+  opacity: 0.45;
+}
+
+.carousel-arrow:disabled:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 720px) {
+  .carousel {
+    width: 100%;
+  }
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.15rem;
+  }
+}
+
+.experiencia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 5px auto 0px auto;
+}
+
+.experiencia h1 {
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Press Start 2P', sans-serif, cursive;
+  margin: 20px 0px 10px 0px;
+}
 
 /*ALL*/
 .projects{
@@ -475,6 +583,79 @@ body{
   text-align: center;
 }
 
+
+.presentacion {
+  margin: 20px 15% 0px 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  gap: 40px;
+  padding: 40px 10px 0px;
+  font-family: "Share Tech Mono", sans-serif, cursive;
+}
+
+.presentacion .subtitle{
+  margin-top: 10px;
+}
+
+.presentacion h1 {
+  font-size: 45px;
+  color: #ffffff;
+  text-align: left;
+}
+
+.presentacion p {
+  font-size: 20px;
+  color: #ffffffd0;
+  font-family: "share tech mono", sans-serif, cursive;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.perfil {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.perfil img {
+  width: 380px;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.redes ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.perfil .project_icons {
+  width: 38px;
+  height: 38px;
+  margin: 0;
+}
+
+
+@media (max-width: 850px) {
+  .presentacion {
+    flex-direction: column;
+    align-items: center;
+  }
+  .presentacion aside,
+  .perfil {
+    max-width: 100%;
+  }
+}
 
 
 

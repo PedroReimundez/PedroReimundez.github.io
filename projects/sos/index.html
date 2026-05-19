@@ -142,8 +142,55 @@
             </section>
         </section>
 
+        <section class="project_images">
+            <div class="carousel">
+                <button class="carousel-arrow carousel-prev" type="button" aria-label="Anterior imagen">&#10094;</button>
+                <div class="carousel-track">
+                    <div class="carousel-item"><img src="../../assets/images/projects/sos/sos1.webp" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="../../assets/images/projects/sos/sos2.webp" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="../../assets/images/projects/sos/sos3.webp" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="../../assets/images/projects/sos/sos6.webp" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="../../assets/images/projects/sos/sos5.webp" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="../../assets/images/projects/sos/sos4.webp" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="../../assets/images/projects/sos/portada_sos.webp" alt="Portada de Songs of Sorrow" class="carousel-image"></div>
+                </div>
+                <button class="carousel-arrow carousel-next" type="button" aria-label="Siguiente imagen">&#10095;</button>
+            </div>
+        </section>
+
     </main>
 
+    <script>
+        (function() {
+            const track = document.querySelector('#carousel-sos .carousel-track');
+            const items = Array.from(track.querySelectorAll('.carousel-item'));
+            const prevButton = document.querySelector('#carousel-sos .carousel-prev');
+            const nextButton = document.querySelector('#carousel-sos .carousel-next');
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                prevButton.disabled = currentIndex === 0;
+                nextButton.disabled = currentIndex === items.length - 1;
+            }
+
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex -= 1;
+                    updateCarousel();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < items.length - 1) {
+                    currentIndex += 1;
+                    updateCarousel();
+                }
+            });
+
+            updateCarousel();
+        })();
+    </script>
 
     <footer class="footer">
         <p>
