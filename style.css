@@ -77,6 +77,12 @@ body{
   flex-direction: column;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
+
+}
+
+.footer a{
+  text-decoration: none;
+  color: white;
 }
 
 .p_footer {
@@ -255,6 +261,7 @@ body{
   margin: 10px 20px 0px 0px;
   transition: transform 0.2s ease;
 }
+
 .project_icons:hover {
   transform: scale(1.08);
 }
@@ -350,29 +357,142 @@ body{
   }
 }
 
+.work{
+  margin: 50px 5% 0px 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.trabajo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 280px 0px 0px;
+  gap: 2px;
+  font-family: "Share Tech Mono", sans-serif, cursive;
+}
+
+.trabajo a{
+  text-decoration: none;
+  color: #ffffffd0;
+}
+
+.trabajo a:hover{
+  text-decoration: none;
+  color: rgb(255, 183, 89);
+}
+
+.trabajo a:active{
+  text-decoration: none;
+  color: #ffffffd0;
+}
+
+.trabajo a:visited{
+  text-decoration: none;
+  color: #ffffffd0;
+}
+
+.trabajo h1{
+  margin-top: 0px;
+}
+
+.trabajo li {
+  display: flex;
+  align-items: left;
+  white-space: nowrap;
+  padding: 20px 0px 20px 0px;
+  border-bottom: #dadada3b 2px solid;
+}
+
+ .trabajo-list {
+   width: 100%;
+   max-height: 240px;
+   overflow-y: auto;
+   padding-right: 8px;
+   margin-top: 16px;
+ }
+ 
+ .trabajo-list ul {
+   display: flex;
+   flex-direction: column;
+   gap: 14px;
+   padding: 0;
+   margin: 0;
+   list-style: none;
+ }
+ 
+ .trabajo-list::-webkit-scrollbar {
+   width: 8px;
+ }
+ 
+ .trabajo-list::-webkit-scrollbar-track {
+   background: rgba(255, 255, 255, 0.068);
+   border-radius: 999px;
+ }
+ 
+ .trabajo-list::-webkit-scrollbar-thumb {
+   background: rgba(255, 255, 255, 0.158);
+   border-radius: 999px;
+ }
+ 
+ .trabajo .job-year {
+   display: inline-block;
+   text-align: left;
+   font-weight: 700;
+   color: #ffffff9a;
+   padding: 10px 20px;
+   border: rgba(255, 255, 255, 0.205) 2px solid;
+   border-radius: 15px;
+ }
+ 
+ .trabajo .job-company {
+  padding: 10px;
+  display: inline-block;
+  color: #ffffff;
+  font-size: 20px;
+  font-family: "Share Tech Mono", sans-serif, cursive;
+}
+
+.trabajo ul{
+  flex-direction: column;
+}
+
 .experiencia {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0px;
-  width: 90%;
+  gap: 35px;
   max-width: 1200px;
-  margin: 5px auto 0px auto;
+  margin: 0px 100px 0px auto;
 }
 
 .experiencia h1 {
-  font-size: 20px;
   color: #ffffff;
   text-align: center;
-  font-family: 'Press Start 2P', sans-serif, cursive;
-  margin: 20px 0px 10px 0px;
+  font-family: 'Share Tech Mono', sans-serif, cursive;
+  margin: 0px 0px 10px 0px;
+}
+
+.experiencia ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 /*ALL*/
 .projects{
   padding: 10px 7rem;
-  margin: 20px 10% 0px 10%;
+  margin: 120px 10% 50px 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -643,6 +763,26 @@ body{
   width: 38px;
   height: 38px;
   margin: 0;
+}
+
+.contacto {
+  margin: 0px 15% 100px 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  gap: 5px;
+  padding: 40px 0px 0px;
+  border-top: #0000001a 3px solid;
+  font-family: "share tech mono", sans-serif, cursive;
+  font-size: 20px;
+}
+
+.contacto a{
+  color: #ffaf1bd0;
+  text-decoration: none;
+  font-size: 40px;
 }
 
 
