@@ -10,18 +10,16 @@
     <meta name = "author" content = "Pedro Reimundez">
     <meta name="description" content="¡Bienvenuti a mi Portfolio Web!"> 
 
-    <meta property="og:title" content="Pedro  Reimundez">
-    <meta property="og:description" content="...">
-    <meta property="og:image" content="https://PedroReimundez/assets/images/perfil.png">
-    <meta property="og:url" content="https://pedroreimundez.github.io/">
+    <meta property="og:title" content="Desconectad@s">
+    <meta property="og:description" content="¡Bienvenuti a mi Portfolio Web! Aquí tienes toda la información sobre mi participación en el proyecto Desconectad@s">
+    <meta property="og:image" content="https://pedroreimundez.github.io/assets/images/projects/desconectados_project.jpeg">
+    <meta property="og:url" content="https://pedroreimundez.github.io/desconectados/">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Invokah">
-    <meta name="twitter:description" content="¡Bienvenuti a mi Portfolio Web!">
-    <meta name="twitter:image" content="https://pedroreimundez.github.io/assets/images/perfil.png">
-
-
+    <meta name="twitter:title" content="Desconectad@s">
+    <meta name="twitter:description" content="¡Bienvenuti a mi Portfolio Web! Aquí tienes toda la información sobre mi participación en el proyecto Desconectad@s">
+    <meta name="twitter:image" content="https://pedroreimundez.github.io/assets/images/projects/desconectados_project.jpeg">
 
 
     <meta name=" robots" content = "index">
@@ -30,7 +28,7 @@
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 
 
-    <title>Proyectos</title>
+    <title>Desconectad@s</title>
     <link rel="stylesheet" href="../../style.css">
 
 
@@ -45,19 +43,16 @@
                     <a href="../../" class="header_buttons">
                         INICIO
                     </a>
-                    <a href= "../../projects/"  class="header_buttons">
+                    <a href= "../../#projects"  class="header_buttons">
                         PORTFOLIO
                     </a>
-                    <a href="../../aboutme/" class="header_buttons">
-                        SOBRE MI
-                    </a>
-                    <a href="../../contact/" class="header_buttons">
+                    <a href="../../#contact/" class="header_buttons">
                         CONTACTO
                     </a>
                 </li>
                 <li class="flag">
-                    <a href="../../en/"> <img src="../../assets/images/flag-us.png" alt="flag us"></a>
-                    <a href="../../es/"> <img src="../../assets/images/flag-es.png" alt="flag es"> </a>
+                    <a href="en/"> <img src="../../assets/images/flag-us.png" alt="flag us"></a>
+                    <a href="../sos/"> <img src="../../assets/images/flag-es.png" alt="flag es"> </a>
                 </li>
             </nav>
         </div>
@@ -65,12 +60,91 @@
 
     <main>
 
+        <section class="project_description">
+            <header>
+                <div class="video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/MSU7-hHAjqY?si=inpu3Ua4-3U_BQuG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </header>
+
+            <section class="project_content">
+                <article class="project_left">
+                    <section class="project_description_text">
+                        <h1>DESCONECTAD@S</h1>
+                        <p>
+                           Desconectad@s es un proyecto de animación 3D realizado por un equipo de alumnos de la Universidad de la Coruña en un plazo de 3 meses, en el que Ana, una ayudante de producción recién entrada en la industria de la animación, se ve abrumada por el trabajo en su día festivo.
+                           <br><br>Este fue uno de mis primeros proyectos y formé parte del equipo de modelado y animación 3D. Adicionalmente, fui el editor principal y escritor de la Biblia del proyecto.
+                        </p>
+                        <h4>EXPERIENCIA ADQUIRIDA</h4>
+                        <ul>
+                            <li>Experiencia en modelado, shading y animación 3D.</li>
+                            <li>Experiencia en edición de video en proyectos profesionales.</li>
+                            <li>Experiencia con Proyectos de animación 3D.</li>
+                        </ul>
+                    </section>
+                </article>
+
+                <aside class="project_right">
+                    <h2>ESTUDIO</h2>
+                    <p>Hacienda Animations</p>
+                    <h2>ROL</h2>
+                    <p>
+                        3D Artist
+                        <br><br>3D Animator
+                        <br><br>Video Editor
+                    </p>
+                    
+                    <section>
+                        <h3>HERRAMIENTAS</h3>
+                        <ul>
+                            <img src="../../assets/images/app_icons/blender_icon.webp" alt="Blender Icon"  class = "project_icons">
+                            <img src="../../assets/images/app_icons/maya_icon.webp" alt="Maya Icon"  class = "project_icons">
+                            <img src="../../assets/images/app_icons/krita_icon.webp" alt="Krita Icon"  class = "project_icons">
+                            <img src="../../assets/images/app_icons/excel_icon.webp" alt="Excel Icon"  class = "project_icons">
+                        </ul>
+                </aside>
+            </section>
+        </section>
 
     </main>
 
+    <script>
+        (function() {
+            const track = document.querySelector('#carousel-sos .carousel-track');
+            const items = Array.from(track.querySelectorAll('.carousel-item'));
+            const prevButton = document.querySelector('#carousel-sos .carousel-prev');
+            const nextButton = document.querySelector('#carousel-sos .carousel-next');
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                prevButton.disabled = currentIndex === 0;
+                nextButton.disabled = currentIndex === items.length - 1;
+            }
+
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex -= 1;
+                    updateCarousel();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < items.length - 1) {
+                    currentIndex += 1;
+                    updateCarousel();
+                }
+            });
+
+            updateCarousel();
+        })();
+    </script>
 
     <footer class="footer">
-        <p>Pedro Reimúndez Martínez</p>
+        <p>
+            © Pedro Reimúndez Martínez
+            <br><br><a href="mailto:pedro.reimundez@gmail.com"> pedro.reimundez@gmail.com</a>
+        </p>
     </footer>
 </body>
 
