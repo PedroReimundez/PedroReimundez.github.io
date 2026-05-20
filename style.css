@@ -366,6 +366,34 @@ body{
   gap: 20px;
 }
 
+.experiencia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0px 100px 0px auto;
+}
+
+.experiencia h1 {
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Share Tech Mono', sans-serif, cursive;
+  margin: 0px 0px 10px 0px;
+}
+
+.experiencia ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
 .trabajo {
   display: flex;
   flex-direction: column;
@@ -382,16 +410,18 @@ body{
 }
 
 .trabajo a:hover{
-  text-decoration: none;
+  transition: color 0.3s ease;
   color: rgb(255, 183, 89);
 }
 
 .trabajo a:active{
+  transition: color 0.3s ease;
   text-decoration: none;
   color: #ffffffd0;
 }
 
 .trabajo a:visited{
+  transition: color 0.3s ease;
   text-decoration: none;
   color: #ffffffd0;
 }
@@ -413,7 +443,7 @@ body{
    max-height: 240px;
    overflow-y: auto;
    padding-right: 8px;
-   margin-top: 16px;
+   margin-top: 5px;
  }
  
  .trabajo-list ul {
@@ -457,36 +487,10 @@ body{
   font-family: "Share Tech Mono", sans-serif, cursive;
 }
 
-.trabajo ul{
-  flex-direction: column;
-}
-
-.experiencia {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 35px;
-  max-width: 1200px;
-  margin: 0px 100px 0px auto;
-}
-
-.experiencia h1 {
-  color: #ffffff;
-  text-align: center;
-  font-family: 'Share Tech Mono', sans-serif, cursive;
-  margin: 0px 0px 10px 0px;
-}
-
-.experiencia ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+@media (max-width: 768px) {
+  .trabajo .job-company {
+    font-size: 18px;
+  }
 }
 
 /*ALL*/
@@ -725,12 +729,27 @@ body{
   text-align: left;
 }
 
+@media (max-width: 768px) {
+  .presentacion h1 {
+    font-size: 30px;
+  }
+}
+
 .presentacion p {
   font-size: 20px;
   color: #ffffffd0;
   font-family: "share tech mono", sans-serif, cursive;
   text-align: left;
   padding-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .presentacion h1 {
+    font-size: 30px;
+  }
+  .presentacion p {
+    font-size: 18px;
+  }
 }
 
 .perfil {
@@ -785,6 +804,15 @@ body{
   font-size: 40px;
 }
 
+@media (max-width: 768px) {
+  .contacto {
+    font-size: 15px;
+    padding: 20px 0px 0px;
+  }
+  .contacto a {
+    font-size: 30px;
+  }
+}
 
 @media (max-width: 850px) {
   .presentacion {
