@@ -108,38 +108,6 @@
 
     </main>
 
-    <script>
-        (function() {
-            const track = document.querySelector('#carousel-sos .carousel-track');
-            const items = Array.from(track.querySelectorAll('.carousel-item'));
-            const prevButton = document.querySelector('#carousel-sos .carousel-prev');
-            const nextButton = document.querySelector('#carousel-sos .carousel-next');
-            let currentIndex = 0;
-
-            function updateCarousel() {
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-                prevButton.disabled = currentIndex === 0;
-                nextButton.disabled = currentIndex === items.length - 1;
-            }
-
-            prevButton.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    currentIndex -= 1;
-                    updateCarousel();
-                }
-            });
-
-            nextButton.addEventListener('click', () => {
-                if (currentIndex < items.length - 1) {
-                    currentIndex += 1;
-                    updateCarousel();
-                }
-            });
-
-            updateCarousel();
-        })();
-    </script>
-
     <footer class="footer">
         <p>
             © Pedro Reimúndez Martínez
