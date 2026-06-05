@@ -9,6 +9,11 @@ body{
   color: #fff;
 }
 
+::selection {
+  background-color: #78ff7f46;
+  color: white;
+}
+
 /* Superior Classes */
 
 .portada{
@@ -460,12 +465,12 @@ body{
  }
  
  .trabajo-list::-webkit-scrollbar-track {
-   background: rgba(255, 255, 255, 0.068);
+   background: rgba(139, 238, 255, 0.171);
    border-radius: 999px;
  }
  
  .trabajo-list::-webkit-scrollbar-thumb {
-   background: rgba(255, 255, 255, 0.158);
+   background: rgba(207, 255, 245, 0.452);
    border-radius: 999px;
  }
  
