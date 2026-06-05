@@ -465,12 +465,12 @@ body{
  }
  
  .trabajo-list::-webkit-scrollbar-track {
-   background: rgba(139, 238, 255, 0.171);
+   background: rgba(235, 252, 255, 0.171);
    border-radius: 999px;
  }
  
  .trabajo-list::-webkit-scrollbar-thumb {
-   background: rgba(207, 255, 245, 0.452);
+   background: rgba(255, 255, 255, 0.555);
    border-radius: 999px;
  }
  
