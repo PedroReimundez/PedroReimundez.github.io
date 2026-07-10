@@ -443,28 +443,29 @@ body{
 
 .trabajo li {
   display: flex;
-  align-items: left;
+  flex-direction: row;
+  align-items: flex-start;
   white-space: nowrap;
   padding: 20px 0px 20px 0px;
   border-bottom: #dadada3b 2px solid;
 }
 
- .trabajo-list {
-   width: 85%;
-   max-height: 240px;
-   overflow-y: auto;
-   padding-right: 8px;
-   margin-top: 5px;
- }
- 
- .trabajo-list ul {
-   display: flex;
-   flex-direction: column;
-   gap: 14px;
-   padding: 0;
-   margin: 0;
-   list-style: none;
- }
+.trabajo-list {
+  width: 85%;
+  max-height: 240px;
+  overflow-y: auto;
+  padding-right: 8px;
+  margin-top: 5px;
+}
+
+.trabajo-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
  
  .trabajo-list::-webkit-scrollbar {
    width: 8px;
@@ -1018,5 +1019,117 @@ body{
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .work {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 30px;
+  }
+
+  .experiencia {
+    gap: 20px;
+  }
+
+  .experiencia ul {
+    gap: 12px;
+  }
+
+  .experiencia_description {
+    width: 100%;
+    max-width: 100%;
+    margin: 30px 0 50px 0;
+    padding: 0 1rem;
+    align-items: stretch;
+  }
+
+  .experiencia_description ul {
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .trabajo {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .trabajo-list {
+    width: 100%;
+    max-height: none;
+    padding-right: 0;
+  }
+
+  .trabajo-list ul {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .trabajo-list a {
+    display: block;
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .trabajo li {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: normal;
+    padding: 16px 0;
+  }
+
+  .trabajo .job-year,
+  .trabajo .job-company {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .projects {
+    padding: 10px 1.5rem;
+    margin: 120px 3% 50px 3%;
+  }
+
+  .projects .project_container {
+    gap: 16px;
+  }
+
+  .projects .project_container .project_box {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .projects .project_container .project_box a {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .video,
+  .video iframe {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .presentacion {
+    margin: 20px 5% 0 5%;
+    padding: 20px 0 0 0;
+  }
+
+  .presentacion aside,
+  .presentacion .perfil,
+  .presentacion .perfil img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contacto {
+    margin: 0px 5% 100px 5%;
   }
 }
