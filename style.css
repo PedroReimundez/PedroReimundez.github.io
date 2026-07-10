@@ -365,10 +365,11 @@ body{
 .work{
   margin: 50px 5% 0px 5%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 20px;
+  gap: 40px;
 }
 
 .experiencia {
@@ -378,7 +379,8 @@ body{
   align-items: center;
   gap: 35px;
   max-width: 1200px;
-  margin: 0px 100px 0px auto;
+  margin: 0;
+  width: 100%;
 }
 
 .experiencia h1 {
@@ -404,19 +406,16 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0px 280px 0px 0px;
+  margin: 0;
   gap: 2px;
   font-family: "Share Tech Mono", sans-serif, cursive;
+  width: 100%;
+  max-width: 860px;
 }
 
 .trabajo a{
   text-decoration: none;
   color: #ffffffd0;
-}
-
-.trabajo a:hover{
-  transition: color 0.3s ease;
-  color: rgb(255, 183, 89);
 }
 
 .trabajo a:active{
@@ -431,6 +430,13 @@ body{
   color: #ffffffd0;
 }
 
+
+.trabajo a:hover{
+  transition: color 0.3s ease;
+  color: rgb(255, 183, 89);
+}
+
+
 .trabajo h1{
   margin-top: 0px;
 }
@@ -444,7 +450,7 @@ body{
 }
 
  .trabajo-list {
-   width: 100%;
+   width: 85%;
    max-height: 240px;
    overflow-y: auto;
    padding-right: 8px;
@@ -474,6 +480,38 @@ body{
    border-radius: 999px;
  }
 
+
+.experiencia_description{
+  font-family: "Share Tech Mono", sans-serif, cursive;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 50px 0px 80px 0px;
+  width: 60%;
+}
+.experiencia_description ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  text-align: left;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
+  list-style:square;
+}
+
+.experiencia_description b{
+  font-size: 16px;
+  color: #63ffcbe7;
+  font-family: "Share Tech Mono", sans-serif, cursive;
+
+}
+
  .trabajo .job-year {
    display: inline-block;
    text-align: left;
@@ -498,6 +536,8 @@ body{
     font-size: 18px;
   }
 }
+
+
 
 /*ALL*/
 .projects{
@@ -665,6 +705,41 @@ body{
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
+
+.reels {
+  margin: 50px 5% 0px 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+}
+
+.reels h1 {
+  text-shadow: 2px 4px 2px #000000;
+  font-size: 30px;
+  font-family: 'Press Start 2P', sans-serif, cursive;
+  margin: 20px 0px 0px 0px;
+  text-align: center;
+}
+
+.reels_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px 0px 80px 0px;
+}
+
+.reels_container iframe {
+  border-radius: 10px;
+  aspect-ratio: 16 / 9;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.712);
+}
 
 .video {
   display: flex;
