@@ -1023,17 +1023,6 @@ body{
   .iframe{
     width: 80%;
     height: auto;
-    
-  }
-
-  .projects {
-    padding: 10px 1rem;
-    margin: 120px 3% 50px 3%;
-  }
-
-  .projects .project_container .project_box a {
-    width: min(25rem, 100%);
-    max-width: 100%;
   }
 
   .trabajo li {
