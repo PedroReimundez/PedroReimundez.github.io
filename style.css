@@ -1019,21 +1019,4 @@ body{
     margin-left: auto;
     margin-right: auto;
   }
-
-  .iframe{
-    width: 80%;
-    height: auto;
-  }
-
-  .trabajo li {
-    white-space: normal;
-  }
-
-  .contacto {
-    margin: 0px 5% 100px 5%;
-  }
-
-  .lista_desplegada nav li {
-    flex-wrap: wrap;
-  }
 }
