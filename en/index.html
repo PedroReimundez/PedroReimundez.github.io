@@ -209,14 +209,13 @@
 
         <section class="reels">
             <h1>REELS AND TESTING VIDEOS</h1>
-            <section class="reels_container">
+            <section class="reels_container" data-language="en">
                 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/I6tjtzDyxkU?si=0i4gdp7sxKw5BmtB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Ipfw65dFx2w?si=Jw14x_WYphQJ5w1v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/bhsvWEvFKJU?si=aCYfAb5vzQ3ZtL_V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NTzTGaQlPKY?si=XpmLFCJ9zFyT0gY7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/Mo_O_UTkX1Y?si=efnm99suYiLRySKk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qj5d9Exn7Q0?si=uYv4Ag5TzwGMzIA1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                
             </section>
         </section>
 
@@ -238,6 +237,68 @@
             <br><br><a href="mailto:pedro.reimundez@gmail.com"> pedro.reimundez@gmail.com</a>
         </p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reelsSection = document.querySelector('.reels');
+            if (!reelsSection) return;
+
+            const container = reelsSection.querySelector('.reels_container');
+            if (!container) return;
+
+            const videos = Array.from(container.querySelectorAll('iframe'));
+            if (videos.length <= 6) return;
+
+            videos.forEach((video, index) => {
+                if (video.getAttribute('src')) {
+                    video.dataset.src = video.getAttribute('src');
+                }
+
+                if (index >= 6) {
+                    video.removeAttribute('src');
+                }
+            });
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'reels_button';
+            button.textContent = container.dataset.language === 'en' ? 'SHOW MORE' : 'VER MÁS';
+            container.insertAdjacentElement('afterend', button);
+
+            let visibleCount = 0;
+            const batchSize = 6;
+
+            const updateVideos = () => {
+                const limit = Math.min(videos.length, visibleCount + batchSize);
+
+                videos.forEach((video, index) => {
+                    if (index < limit) {
+                        if (!video.getAttribute('src') && video.dataset.src) {
+                            video.setAttribute('src', video.dataset.src);
+                        }
+                        video.classList.remove('is-hidden');
+                    } else {
+                        video.classList.add('is-hidden');
+                        if (video.getAttribute('src')) {
+                            video.removeAttribute('src');
+                        }
+                    }
+                });
+
+                const remaining = videos.length - limit;
+                button.style.display = remaining > 0 ? 'inline-flex' : 'none';
+                button.textContent = remaining > 0 ? (container.dataset.language === 'en' ? 'SHOW MORE' : 'VER MÁS') : '';
+            };
+
+            visibleCount = 0;
+            updateVideos();
+
+            button.addEventListener('click', () => {
+                visibleCount += batchSize;
+                updateVideos();
+            });
+        });
+    </script>
 </body>
 
 </html>
