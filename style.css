@@ -1149,4 +1149,8 @@ body{
   .reels_container{
     margin: 0px 50% 20px 50%;
   }
+  .project_box{
+    width: 20rem;
+    height: 15rem;
+  }
 }
