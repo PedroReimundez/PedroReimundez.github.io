@@ -1146,7 +1146,7 @@ body{
   .contacto {
     margin: 0px 5% 100px 5%;
   }
-  .reels_container iframe{
-    width: 80%;
+  .reels_container{
+    margin: 0px 50% 20px 50%;
   }
 }
