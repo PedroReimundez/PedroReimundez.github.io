@@ -577,8 +577,6 @@ body{
   transform-origin: center;
   border-radius: 20px;
   overflow: hidden;
-  flex: 0 0 auto;
-  width: 25rem;
 }
 .projects .project_container .project_box:hover {
   transform: scale(1.03);
@@ -599,11 +597,9 @@ body{
   max-width: 420px;
   max-height: 280px;
   border-radius: 20px;
-  background-size: cover;
-  background-position: center;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   overflow: hidden;
-  display: block;
 }
 
 .project_expecifications {
@@ -1129,19 +1125,6 @@ body{
     gap: 16px;
   }
 
-  .projects .project_container .project_box {
-    width: 100%;
-    max-width: 100%;
-    flex: 1 1 100%;
-    min-width: 0;
-  }
-
-  .projects .project_container .project_box a {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
   .video,
   .video iframe {
     width: 100%;
@@ -1162,5 +1145,8 @@ body{
 
   .contacto {
     margin: 0px 5% 100px 5%;
+  }
+  .reels_container iframe{
+    width: 80%;
   }
 }
