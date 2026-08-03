@@ -1166,6 +1166,15 @@ body{
     display: inline-block;
     width: auto;
     padding: 8px 0;
+    min-width: 0;
+  }
+
+  .trabajo .job-year {
+    justify-self: start;
+  }
+
+  .trabajo .job-company {
+    width: 100%;
   }
 
   .projects {
