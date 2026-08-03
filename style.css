@@ -1230,8 +1230,7 @@ body{
   }
 
   .project_portrait {
-    width: 20rem;
-    height: 15rem;
+    width: 50%;
   }
 
 }
