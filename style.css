@@ -277,6 +277,13 @@ body{
   padding: 30px 20px 0px;
 }
 
+.project_portrait {
+  width: 50%;
+  border-radius: 8px;
+  object-fit: contain;
+  justify-content: center;
+}
+
 .carousel {
   position: relative;
   width: min(100%, 900px);
