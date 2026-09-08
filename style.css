@@ -1129,10 +1129,13 @@ body{
     max-width: 100%;
     margin: 30px 0 50px 0;
     padding: 0 1rem;
+    box-sizing: border-box;
     align-items: stretch;
   }
 
   .experiencia_description ul {
+    width: 100%;
+    box-sizing: border-box;
     align-items: flex-start;
     text-align: left;
     padding-left: 0;
