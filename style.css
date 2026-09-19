@@ -458,7 +458,7 @@ body{
 
 .trabajo-list {
   width: min(100%, 720px);
-  max-height: 240px;
+  max-height: 600px;
   overflow-y: auto;
   padding-right: 8px;
   margin-top: 5px;
