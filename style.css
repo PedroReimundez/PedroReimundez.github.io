@@ -447,6 +447,24 @@ body{
   margin-top: 0px;
 }
 
+.resume_button {
+  margin: 70px 0px 20px 0px;
+  align-self: center;
+  padding: 14px 24px;
+  border: 2px solid rgb(255, 183, 89);
+  color: #ffffff;
+  font-family: 'Share Tech Mono', sans-serif, cursive;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.resume_button:hover,
+.resume_button:focus-visible {
+  background-color: rgb(255, 183, 89);
+  color: #29292b;
+}
+
 .trabajo li {
   display: flex;
   flex-direction: row;
