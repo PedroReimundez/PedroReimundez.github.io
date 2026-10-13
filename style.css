@@ -9,6 +9,57 @@ body{
   color: #fff;
 }
 
+@keyframes page-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes header-background-in {
+  from { background-color: rgba(0, 2, 31, 0); }
+  to { background-color: rgb(0, 2, 31); }
+}
+
+.home-page .portada {
+  animation: header-background-in 0.65s ease-out both;
+}
+
+.home-page main > .presentacion,
+.home-page main > .video,
+.home-page main > .work,
+.home-page main > #projects,
+.home-page main > .reels,
+.home-page main > .contacto,
+.home-page .footer {
+  animation: page-rise-in 0.65s ease-out both;
+}
+
+.home-page main > .presentacion { animation-delay: 0.12s; }
+.home-page main > .video { animation-delay: 0.24s; }
+.home-page main > .work { animation-delay: 0.36s; }
+.home-page main > #projects { animation-delay: 0.48s; }
+.home-page main > .reels { animation-delay: 0.6s; }
+.home-page main > .contacto { animation-delay: 0.72s; }
+.home-page .footer { animation-delay: 0.84s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .portada,
+  .home-page main > .presentacion,
+  .home-page main > .video,
+  .home-page main > .work,
+  .home-page main > #projects,
+  .home-page main > .reels,
+  .home-page main > .contacto,
+  .home-page .footer {
+    animation: none;
+  }
+}
+
 ::selection {
   background-color: #78ff7f46;
   color: white;
@@ -447,22 +498,38 @@ body{
   margin-top: 0px;
 }
 
+@property --resume-gradient-end {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #007a47;
+}
+
 .resume_button {
-  margin: 70px 0px 20px 0px;
-  align-self: center;
-  padding: 14px 24px;
-  border: 2px solid rgb(255, 183, 89);
-  color: #ffffff;
-  font-family: 'Share Tech Mono', sans-serif, cursive;
-  font-size: 18px;
+  --resume-gradient-end: #00b469;
+  border: none;
+  background: linear-gradient(135deg, #7ffc66, var(--resume-gradient-end));
+  color: white;
+  padding: 20px 34px;
+  border-radius: 999px;
+  font-family: 'Press Start 2P', sans-serif, cursive;
+  font-size: 15px;
+  cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: --resume-gradient-end 0.35s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 80px 0 20px 0;
 }
 
 .resume_button:hover,
 .resume_button:focus-visible {
-  background-color: rgb(255, 183, 89);
-  color: #29292b;
+  --resume-gradient-end: #00b688;
+  transform: translateY(-2px) scale(1.09);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.resume_button:focus-visible {
+  outline: 2px solid rgb(126, 255, 66);
+  outline-offset: 4px;
 }
 
 .trabajo li {
