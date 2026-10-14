@@ -47,6 +47,10 @@ body{
 .home-page .footer { animation-delay: 0.84s; }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .home-page .portada,
   .home-page main > .presentacion,
   .home-page main > .video,
@@ -55,6 +59,11 @@ body{
   .home-page main > .reels,
   .home-page main > .contacto,
   .home-page .footer {
+    animation: none;
+  }
+
+  .projects .project_box.project-reveal,
+  .reels_container iframe.reel-reveal {
     animation: none;
   }
 }
@@ -504,9 +513,9 @@ body{
 }
 
 .resume_button {
-  --resume-gradient-end: #00b469;
+  --resume-gradient-end: #1200b4;
   border: none;
-  background: linear-gradient(135deg, #7ffc66, var(--resume-gradient-end));
+  background: linear-gradient(135deg, #66acfc, var(--resume-gradient-end));
   color: white;
   padding: 20px 34px;
   border-radius: 999px;
@@ -521,13 +530,13 @@ body{
 
 .resume_button:hover,
 .resume_button:focus-visible {
-  --resume-gradient-end: #00b688;
+  --resume-gradient-end: #00b69e;
   transform: translateY(-2px) scale(1.09);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
 .resume_button:focus-visible {
-  outline: 2px solid rgb(126, 255, 66);
+  outline: 2px solid rgb(66, 255, 183);
   outline-offset: 4px;
 }
 
@@ -685,6 +694,23 @@ body{
   transform-origin: center;
   border-radius: 20px;
   overflow: hidden;
+}
+.projects .project_box.is-hidden {
+  display: none;
+}
+@keyframes content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.projects .project_box.project-reveal,
+.reels_container iframe.reel-reveal {
+  animation: content-reveal 0.45s ease-out both;
 }
 .projects .project_container .project_box:hover {
   transform: scale(1.03);
@@ -879,26 +905,42 @@ body{
   display: none;
 }
 
-.reels_button {
+.reels_button{
   border: none;
   background: linear-gradient(135deg, #82b448, #00b469);
   color: white;
-  padding: 12px 24px;
+  padding: 20px 30px;
   border-radius: 999px;
   font-family: 'Press Start 2P', sans-serif, cursive;
-  font-size: 11px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 0 0 60px 0;
+}
+.projects_button {
+  border: none;
+  background: linear-gradient(135deg, #8c48b4, #9600b4);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 999px;
+  font-family: 'Press Start 2P', sans-serif, cursive;
+  font-size: 15px;
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   margin: 0 0 60px 0;
 }
 
-.reels_button:hover {
+.reels_button:hover,
+.projects_button:hover {
   transform: translateY(-2px);
+  transform: scale(1.05);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
-.reels_button:active {
+.reels_button:active,
+.projects_button:active {
   transform: translateY(0);
 }
 
@@ -1328,6 +1370,12 @@ body{
 
   .project_portrait {
     width: 50%;
+  }
+
+  .reels_button,
+  .projects_button {
+    font-size: 11px;
+    padding: 12px 24px;
   }
 
 }

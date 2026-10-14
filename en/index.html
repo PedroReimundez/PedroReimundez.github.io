@@ -214,7 +214,7 @@
         <section id="projects">
             <section _ngcontent-ng-c3387897690="" id="projects" class="projects">
                 
-                <h1 _ngcontent-ng-c3387897690="" id="proyectos_finalizados">PORTFOLIO</h1>
+                <h1 _ngcontent-ng-c3387897690="" id="proyectos_finalizados">FEATURED PROJECTS</h1>
                 
                 <section _ngcontent-ng-c3387897690="" class="project_container">
                     <section _ngcontent-ng-c3387897690="" class="project_box">
@@ -234,6 +234,11 @@
                         <a _ngcontent-ng-c3387897690="" target="_blank" href="https://matiolas.itch.io/musbound" class="see-prototipe">Academic Prototype</a>
                         <a _ngcontent-ng-c3387897690="" href="../projects/musbound/en/" class="project_link" style="background-image: url('../assets/images/projects/musbound_project.webp');"></a>
                     </section>
+            
+                </section>
+                
+                <h1 _ngcontent-ng-c3387897690="" id="proyectos_finalizados">OTHER PROJECTS</h1>
+                <section _ngcontent-ng-c3387897690="" class="project_container">
 
                     <section _ngcontent-ng-c3387897690="" class="project_box">
                         <div _ngcontent-ng-c3387897690="" class="project_expecifications">2026</div>
@@ -304,6 +309,7 @@
                 <br><br><a href="mailto:pedro.reimundez@gmail.com"> pedro.reimundez@gmail.com</a> 
                 <br><br>I will be happy to respond to your messages and discuss any collaboration opportunities or projects where I can contribute.
             </p>
+            <a class="resume_button" href="assets/cv/CV_Pedro_Reimundez_PV_es.pdf" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 15px; padding: 20px 30px; margin-top: 20px;">SHOW CV</a>
         </section>
 
     </main>
@@ -318,6 +324,47 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const projectsSection = document.querySelector('.projects');
+            if (projectsSection) {
+                const projects = Array.from(projectsSection.querySelectorAll('.project_box'));
+                const mobileBreakpoint = window.matchMedia('(max-width: 768px)');
+                const initialCount = () => mobileBreakpoint.matches ? 6 : 9;
+
+                if (projects.length > 6) {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'projects_button';
+                    button.textContent = document.documentElement.lang === 'en' ? 'SHOW MORE' : 'VER MÁS';
+                    projectsSection.appendChild(button);
+
+                    let visibleCount = initialCount();
+                    let hasExpandedProjects = false;
+                    const updateProjects = () => {
+                        projects.forEach((project, index) => {
+                            project.classList.toggle('is-hidden', index >= visibleCount);
+                        });
+
+                        button.style.display = visibleCount < projects.length ? 'inline-flex' : 'none';
+                    };
+
+                    updateProjects();
+                    button.addEventListener('click', () => {
+                        hasExpandedProjects = true;
+                        const previousCount = visibleCount;
+                        visibleCount = Math.min(projects.length, visibleCount + 6);
+                        updateProjects();
+                        const newlyShownProjects = projects.slice(previousCount, visibleCount);
+                        newlyShownProjects.forEach(project => project.classList.add('project-reveal'));
+                    });
+                    mobileBreakpoint.addEventListener('change', () => {
+                        if (!hasExpandedProjects) {
+                            visibleCount = initialCount();
+                            updateProjects();
+                        }
+                    });
+                }
+            }
+
             const reelsSection = document.querySelector('.reels');
             if (!reelsSection) return;
 
@@ -372,8 +419,11 @@
             updateVideos();
 
             button.addEventListener('click', () => {
+                const previousCount = Math.min(videos.length, visibleCount + batchSize);
                 visibleCount += batchSize;
                 updateVideos();
+                const newCount = Math.min(videos.length, visibleCount + batchSize);
+                videos.slice(previousCount, newCount).forEach(video => video.classList.add('reel-reveal'));
             });
         });
     </script>
