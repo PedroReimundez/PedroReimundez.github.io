@@ -106,12 +106,69 @@
                         </ul>
                 </aside>
             </section>
-            <div class="video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/bhsvWEvFKJU?si=aCYfAb5vzQ3ZtL_V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </section>
+            
+            <section class="project_images">
+                <div class="carousel" id="carousel-image">
+                    <button class="carousel-arrow carousel-prev" type="button" aria-label="Anterior imagen">&#10094;</button>
+                    <div class="carousel-track">
+                        <div class="carousel-item"><iframe width="739" height="416" src="https://www.youtube.com/embed/bhsvWEvFKJU?si=H3egyiBo6ryBjhOb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <div class="carousel-item"><iframe width="739" height="416" src="https://www.youtube.com/embed/ArkrR6W2z_0?si=wh5q2b_MbehxhPm5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    </div>
+                    <button class="carousel-arrow carousel-next" type="button" aria-label="Siguiente imagen">&#10095;</button>
+                </div>
+            </section>
+        
+        </main>
 
-    </main>
+        <script>
+            (function() {
+                const track = document.querySelector('#carousel-image .carousel-track');
+                const prevButton = document.querySelector('#carousel-image .carousel-prev');
+                const nextButton = document.querySelector('#carousel-image .carousel-next');
+                let isAnimating = false;
+                let direction = '';
+
+                function resetTrack() {
+                    track.style.transition = 'none';
+                    track.style.transform = 'translateX(0)';
+                    track.offsetHeight;
+                    track.style.transition = '';
+                }
+
+                track.addEventListener('transitionend', event => {
+                    if (event.target !== track || event.propertyName !== 'transform' || !isAnimating) return;
+
+                    if (direction === 'next') {
+                        track.appendChild(track.firstElementChild);
+                    }
+
+                    resetTrack();
+                    direction = '';
+                    isAnimating = false;
+                });
+
+                prevButton.addEventListener('click', () => {
+                    if (isAnimating || track.children.length < 2) return;
+
+                    isAnimating = true;
+                    direction = 'prev';
+                    track.style.transition = 'none';
+                    track.insertBefore(track.lastElementChild, track.firstElementChild);
+                    track.style.transform = 'translateX(-100%)';
+                    track.offsetHeight;
+                    track.style.transition = '';
+                    track.style.transform = 'translateX(0)';
+                });
+
+                nextButton.addEventListener('click', () => {
+                    if (isAnimating || track.children.length < 2) return;
+
+                    isAnimating = true;
+                    direction = 'next';
+                    track.style.transform = 'translateX(-100%)';
+                });
+            })();
+        </script>
 
     <footer class="footer">
         <p>

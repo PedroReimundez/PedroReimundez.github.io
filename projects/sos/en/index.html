@@ -145,13 +145,18 @@
             <div class="carousel" id="carousel-image">
                 <button class="carousel-arrow carousel-prev" type="button" aria-label="Anterior imagen">&#10094;</button>
                 <div class="carousel-track">
-                    <div class="carousel-item"><img src="../../../assets/images/projects/sos/sos1.webp" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
-                    <div class="carousel-item"><img src="../../../assets/images/projects/sos/sos2.webp" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
-                    <div class="carousel-item"><img src="../../../assets/images/projects/sos/sos3.webp" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
-                    <div class="carousel-item"><img src="../../../assets/images/projects/sos/sos6.webp" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
-                    <div class="carousel-item"><img src="../../../assets/images/projects/sos/sos5.webp" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
-                    <div class="carousel-item"><img src="../../../assets/images/projects/sos/sos4.webp" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
-                    <div class="carousel-item"><img src="../../../assets/images/projects/sos/portada_sos.webp" alt="Portada de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="https://img.itch.zone/aW1hZ2UvMzM3NzIzMS8yMTQzNTQxNy5qcGc=/original/7tsQEv.jpg" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="https://img.itch.zone/aW1hZ2UvMzM3NzIzMS8yMTQzNTQxOS5qcGc=/original/yOwQ2m.jpg" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="https://img.itch.zone/aW1hZ2UvMzM3NzIzMS8yMTQzNTQxOC5qcGc=/original/ZW1TDG.jpg" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="https://img.itch.zone/aW1hZ2UvMzM3NzIzMS8yMTY4Mjk5MS5wbmc=/original/8zlkh%2B.png" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="https://img.itch.zone/aW1hZ2UvMzM3NzIzMS8yMTY4MjkxNS5wbmc=/original/ydPBAl.png" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="https://img.itch.zone/aW1hZ2UvMzM3NzIzMS8yMTQzNTMzOC5wbmc=/original/M9LrI%2B.png" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="https://img.itch.zone/aW1hZ2UvMzM3NzIzMS8yMTQzNTQyMC5qcGc=/original/FklgUx.jpg" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="https://img.itch.zone/aW1hZ2UvMzM3NzIzMS8yMTQzNTQyMC5qcGc=/original/FklgUx.jpg" alt="Captura de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><img src="https://img.itch.zone/aW1hZ2UvMzM3NzIzMS8yMTY4MzA4Ni5qcGc=/original/riMoYC.jpg" alt="Portada de Songs of Sorrow" class="carousel-image"></div>
+                    <div class="carousel-item"><iframe width="739" height="416" src="https://www.youtube.com/embed/W_ZRrWNX5SY?si=7zTkeqScNUO_0st4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="carousel-item"><iframe width="739" height="416" src="https://www.youtube.com/embed/ybdNqE6YHNk?si=_5xQZl19W26uF7p2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div class="carousel-item"><iframe width="739" height="416" src="https://www.youtube.com/embed/vleO4KYnuy8?si=QWjgafyO1XFw6Q86" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                 </div>
                 <button class="carousel-arrow carousel-next" type="button" aria-label="Siguiente imagen">&#10095;</button>
             </div>
@@ -162,32 +167,50 @@
     <script>
         (function() {
             const track = document.querySelector('#carousel-image .carousel-track');
-            const items = Array.from(track.querySelectorAll('.carousel-item'));
             const prevButton = document.querySelector('#carousel-image .carousel-prev');
             const nextButton = document.querySelector('#carousel-image .carousel-next');
-            let currentIndex = 0;
+            let isAnimating = false;
+            let direction = '';
 
-            function updateCarousel() {
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-                prevButton.disabled = currentIndex === 0;
-                nextButton.disabled = currentIndex === items.length - 1;
+            function resetTrack() {
+                track.style.transition = 'none';
+                track.style.transform = 'translateX(0)';
+                track.offsetHeight;
+                track.style.transition = '';
             }
 
-            prevButton.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    currentIndex -= 1;
-                    updateCarousel();
+            track.addEventListener('transitionend', event => {
+                if (event.target !== track || event.propertyName !== 'transform' || !isAnimating) return;
+
+                if (direction === 'next') {
+                    track.appendChild(track.firstElementChild);
                 }
+
+                resetTrack();
+                direction = '';
+                isAnimating = false;
+            });
+
+            prevButton.addEventListener('click', () => {
+                if (isAnimating || track.children.length < 2) return;
+
+                isAnimating = true;
+                direction = 'prev';
+                track.style.transition = 'none';
+                track.insertBefore(track.lastElementChild, track.firstElementChild);
+                track.style.transform = 'translateX(-100%)';
+                track.offsetHeight;
+                track.style.transition = '';
+                track.style.transform = 'translateX(0)';
             });
 
             nextButton.addEventListener('click', () => {
-                if (currentIndex < items.length - 1) {
-                    currentIndex += 1;
-                    updateCarousel();
-                }
-            });
+                if (isAnimating || track.children.length < 2) return;
 
-            updateCarousel();
+                isAnimating = true;
+                direction = 'next';
+                track.style.transform = 'translateX(-100%)';
+            });
         })();
     </script>
 

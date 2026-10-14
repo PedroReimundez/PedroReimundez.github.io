@@ -155,32 +155,50 @@
     <script>
         (function() {
             const track = document.querySelector('#carousel-image .carousel-track');
-            const items = Array.from(track.querySelectorAll('.carousel-item'));
             const prevButton = document.querySelector('#carousel-image .carousel-prev');
             const nextButton = document.querySelector('#carousel-image .carousel-next');
-            let currentIndex = 0;
+            let isAnimating = false;
+            let direction = '';
 
-            function updateCarousel() {
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-                prevButton.disabled = currentIndex === 0;
-                nextButton.disabled = currentIndex === items.length - 1;
+            function resetTrack() {
+                track.style.transition = 'none';
+                track.style.transform = 'translateX(0)';
+                track.offsetHeight;
+                track.style.transition = '';
             }
 
-            prevButton.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    currentIndex -= 1;
-                    updateCarousel();
+            track.addEventListener('transitionend', event => {
+                if (event.target !== track || event.propertyName !== 'transform' || !isAnimating) return;
+
+                if (direction === 'next') {
+                    track.appendChild(track.firstElementChild);
                 }
+
+                resetTrack();
+                direction = '';
+                isAnimating = false;
+            });
+
+            prevButton.addEventListener('click', () => {
+                if (isAnimating || track.children.length < 2) return;
+
+                isAnimating = true;
+                direction = 'prev';
+                track.style.transition = 'none';
+                track.insertBefore(track.lastElementChild, track.firstElementChild);
+                track.style.transform = 'translateX(-100%)';
+                track.offsetHeight;
+                track.style.transition = '';
+                track.style.transform = 'translateX(0)';
             });
 
             nextButton.addEventListener('click', () => {
-                if (currentIndex < items.length - 1) {
-                    currentIndex += 1;
-                    updateCarousel();
-                }
-            });
+                if (isAnimating || track.children.length < 2) return;
 
-            updateCarousel();
+                isAnimating = true;
+                direction = 'next';
+                track.style.transform = 'translateX(-100%)';
+            });
         })();
     </script>
 
