@@ -1125,6 +1125,9 @@ body{
   .contacto a {
     font-size: 30px;
   }
+  .contacto .contact-intro a {
+    font-size: inherit;
+  }
 }
 
 @media (max-width: 850px) {
