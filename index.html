@@ -31,7 +31,7 @@
 
 
     <title>Pedro Reimundez</title>
-    <link rel="stylesheet" href="style.css?v=20261027-1">
+    <link rel="stylesheet" href="style.css?v=20261027-2">
     <link rel="icon" sizes="32x32" href="assets/icon/web_icon.png">  
 
 
@@ -317,32 +317,8 @@
         <section id="contact" class="contacto">
             <h1>CONTACTO</h1>
 
-            <form class="contact-form" action="https://formsubmit.co/pedro.reimundez@gmail.com" data-ajax-action="https://formsubmit.co/ajax/pedro.reimundez@gmail.com" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="_subject" value="[Portfolio web] Nuevo mensaje de contacto">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_replyto" value="">
-                <input type="hidden" name="_next" value="https://pedroreimundez.github.io/?contact=sent#contact">
-                <input type="hidden" name="Origen" value="Formulario de contacto de pedroreimundez.github.io">
-
-                <label for="contact-email">Correo electrónico</label>
-                <input id="contact-email" name="email" type="email" maxlength="254" autocomplete="email" required>
-
-                <label for="contact-subject">Asunto</label>
-                <input id="contact-subject" name="Asunto" type="text" maxlength="150" required>
-
-                <label for="contact-message">Contenido</label>
-                <textarea id="contact-message" name="Mensaje" rows="7" maxlength="5000" required></textarea>
-
-                <label for="contact-attachments">Archivos adjuntos (opcional)</label>
-                <input id="contact-attachments" name="attachment[]" type="file" multiple>
-                <small class="contact-form-help">Tamaño máximo: 10 MB</small>
-
-                <button class="resume_button" type="submit">ENVIAR</button>
-                <p class="contact-form-status" role="status" aria-live="polite"></p>
-            </form>
-
             <p class="contact-intro">
-                Si quieres ponerte en contacto conmigo, puedes hacerlo cubriendo el formulario o a través de mi correo electrónico:
+                Si quieres ponerte en contacto conmigo, puedes hacerlo a través de mi correo electrónico:
                 <br><br><a href="mailto:pedro.reimundez@gmail.com"> pedro.reimundez@gmail.com</a>
                 <br><br>Estaré encantado de responder a tus mensajes y discutir cualquier oportunidad de colaboración o proyecto en el que pueda contribuir.
             </p>
@@ -463,86 +439,6 @@
                 updateVideos();
                 const newCount = Math.min(videos.length, visibleCount + batchSize);
                 videos.slice(previousCount, newCount).forEach(video => video.classList.add('reel-reveal'));
-            });
-        });
-    </script>
-    <script>
-        document.querySelectorAll('.contact-form').forEach((form) => {
-            const status = form.querySelector('.contact-form-status');
-            const submitButton = form.querySelector('button[type="submit"]');
-            const pageUrl = new URL(window.location.href);
-
-            if (pageUrl.searchParams.get('contact') === 'sent') {
-                status.textContent = '¡Mensaje enviado! Gracias por ponerte en contacto conmigo.';
-                pageUrl.searchParams.delete('contact');
-                window.history.replaceState({}, '', pageUrl.pathname + pageUrl.search + pageUrl.hash);
-            }
-
-            form.addEventListener('input', (event) => {
-                if (event.target.matches('[required]')) {
-                    event.target.setCustomValidity('');
-                }
-            });
-
-            form.addEventListener('submit', async (event) => {
-                const requiredFields = Array.from(form.querySelectorAll('[required]'));
-                requiredFields.forEach((field) => {
-                    field.setCustomValidity(field.value.trim() ? '' : 'Este campo es obligatorio.');
-                });
-
-                if (!form.reportValidity()) {
-                    event.preventDefault();
-                    return;
-                }
-
-                const emailField = form.querySelector('[name="email"]');
-                form.querySelector('[name="_replyto"]').value = emailField.value.trim();
-                requiredFields.forEach((field) => {
-                    field.value = field.value.trim();
-                });
-
-                const attachments = form.querySelector('[name="attachment[]"]').files;
-                const totalAttachmentSize = Array.from(attachments).reduce((total, file) => total + file.size, 0);
-                if (totalAttachmentSize > 10 * 1024 * 1024) {
-                    event.preventDefault();
-                    status.textContent = 'Los archivos adjuntos no pueden superar los 10 MB en total.';
-                    status.classList.add('is-error');
-                    return;
-                }
-
-                if (attachments.length > 0) {
-                    status.textContent = 'Enviando mensaje y archivos…';
-                    status.classList.remove('is-error');
-                    submitButton.disabled = true;
-                    return;
-                }
-
-                event.preventDefault();
-                submitButton.disabled = true;
-                status.textContent = 'Enviando mensaje…';
-                status.classList.remove('is-error');
-
-                try {
-                    const response = await fetch(form.dataset.ajaxAction, {
-                        method: 'POST',
-                        body: new FormData(form),
-                        headers: { Accept: 'application/json' }
-                    });
-                    const result = await response.json();
-
-                    if (!response.ok || (result.success !== true && result.success !== 'true')) {
-                        throw new Error(result.message || 'El servicio de correo no pudo aceptar el mensaje.');
-                    }
-
-                    form.reset();
-                    status.textContent = '¡Mensaje enviado! Gracias por ponerte en contacto conmigo.';
-                } catch (error) {
-                    status.textContent = 'No se pudo enviar el mensaje. Inténtalo de nuevo o escríbeme directamente a pedro.reimundez@gmail.com.';
-                    status.classList.add('is-error');
-                    console.error('Error al enviar el formulario de contacto:', error);
-                } finally {
-                    submitButton.disabled = false;
-                }
             });
         });
     </script>

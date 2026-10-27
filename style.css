@@ -1108,82 +1108,13 @@ body{
 
 .contact-intro {
   width: 100%;
-  max-width: 650px;
+  max-width: 750px;
   box-sizing: border-box;
   margin: 0 auto;
 }
 
 .contact-intro a {
   font-size: inherit;
-}
-
-.contact-form {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 10px;
-  width: 100%;
-  max-width: 650px;
-  box-sizing: border-box;
-  text-align: left;
-}
-
-.contact-form label {
-  margin-top: 8px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 12px;
-  border: 2px solid #ffffff80;
-  border-radius: 6px;
-  background: #ffffff10;
-  color: #fff;
-  font: inherit;
-}
-
-.contact-form textarea {
-  resize: vertical;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: 2px solid #66acfc;
-  outline-offset: 2px;
-}
-
-.contact-form input[type="file"] {
-  padding: 8px;
-}
-
-.contact-form-help {
-  font-size: 15px;
-}
-
-.contact-form .resume_button {
-  --resume-gradient-end: #a500b4;
-  background: linear-gradient(135deg, #fc66ac, var(--resume-gradient-end));
-  align-self: center;
-  margin: 12px 0 0;
-}
-
-.contact-form .resume_button:disabled {
-  cursor: wait;
-  opacity: 0.7;
-}
-
-.contact-form-status {
-  width: 100%;
-  box-sizing: border-box;
-  min-height: 1.5em;
-  margin: 4px 0 0;
-  font-size: 16px;
-  text-align: left;
-}
-
-.contact-form-status.is-error {
-  color: #ff9a9a;
 }
 
 @media (max-width: 768px) {
