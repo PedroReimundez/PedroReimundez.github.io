@@ -1118,8 +1118,8 @@ body{
 }
 
 .contact-form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
   width: 100%;
   max-width: 650px;
